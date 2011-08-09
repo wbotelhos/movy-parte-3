@@ -6,4 +6,5 @@
   <li><a href="${pageContext.request.contextPath}/filme/novo">Novo Filme</a></li>
   <li><a href="${pageContext.request.contextPath}/artista">Artista</a></li>
   <li><a href="${pageContext.request.contextPath}/artista/novo">Novo Artista</a></li>
+  <li><a href="${pageContext.request.contextPath}/logout">Sair</a></li>
 </ul>
