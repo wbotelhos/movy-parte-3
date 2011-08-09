@@ -9,6 +9,8 @@ public class Filme extends AbstractEntity {
 
 	private static final long serialVersionUID = -8749023244978931400L;
 
+	public static final String IMAGE_PATH = "/Users/botelho/movy/img/filme";
+
 	private Integer ano;
 	private String titulo;
 	private String tituloOriginal;
