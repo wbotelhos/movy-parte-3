@@ -1,13 +1,16 @@
 package br.com.wbotelhos.movy.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 import br.com.wbotelhos.movy.model.common.AbstractEntity;
+import br.com.wbotelhos.movy.model.common.TipoPerfil;
 
 @Entity
 public class Usuario extends AbstractEntity {
 
-	private static final long serialVersionUID = -5056457001845059841L;
+	private static final long serialVersionUID = 3783393251821367126L;
 
 	public static final String IMAGE_PATH = "/Users/botelho/movy/img/usuario";
 
@@ -15,6 +18,9 @@ public class Usuario extends AbstractEntity {
 	private String email;
 	private String senha;
 	private String imagem;
+
+	@Enumerated(EnumType.STRING)
+	private TipoPerfil perfil;
 
 	public String getNome() {
 		return nome;
@@ -46,6 +52,14 @@ public class Usuario extends AbstractEntity {
 
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+
+	public TipoPerfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(TipoPerfil perfil) {
+		this.perfil = perfil;
 	}
 
 }
