@@ -7,6 +7,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.wbotelhos.movy.model.Filme;
 import br.com.wbotelhos.movy.repository.FilmeRepository;
 
@@ -33,6 +34,17 @@ public class FilmeController {
 		filme = repository.loadById(filme.getId());
 
 		result.include("filme", filme);
+	}
+
+	@Post("/filme/{filme.id}/imagem")
+	public void uploadImage(UploadedFile file, Filme filme) {
+		try {
+			repository.uploadImage(file, filme);
+		} catch (Exception e) {
+			result.include("error", e.getMessage());
+		}
+
+		result.redirectTo(this).exibir(filme);
 	}
 
 	@Get("/filme")
