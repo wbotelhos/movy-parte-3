@@ -2,7 +2,7 @@
 	<title>Movy | Filme [exibir]</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/artista/${artista.id}/imagem" enctype="multipart/form-data" method="post">
+	<form action="${pageContext.request.contextPath}/filme/${filme.id}/imagem" enctype="multipart/form-data" method="post">
 		<input type="file" name="file"/>
 		<input type="submit" value="enviar"/>
 	</form><br/><br/>
