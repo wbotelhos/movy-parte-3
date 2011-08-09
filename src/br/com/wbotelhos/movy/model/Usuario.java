@@ -7,11 +7,14 @@ import br.com.wbotelhos.movy.model.common.AbstractEntity;
 @Entity
 public class Usuario extends AbstractEntity {
 
-	private static final long serialVersionUID = 7649818757373046718L;
+	private static final long serialVersionUID = -5056457001845059841L;
+
+	public static final String IMAGE_PATH = "/Users/botelho/movy/img/usuario";
 
 	private String nome;
 	private String email;
 	private String senha;
+	private String imagem;
 
 	public String getNome() {
 		return nome;
@@ -35,6 +38,14 @@ public class Usuario extends AbstractEntity {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 }
