@@ -7,13 +7,14 @@ import br.com.wbotelhos.movy.model.common.AbstractEntity;
 @Entity
 public class Filme extends AbstractEntity {
 
-	private static final long serialVersionUID = -4144195690825990038L;
+	private static final long serialVersionUID = -8749023244978931400L;
 
 	private Integer ano;
 	private String titulo;
 	private String tituloOriginal;
 	private String genero;
 	private String sinopse;
+	private String imagem;
 
 	public Integer getAno() {
 		return ano;
@@ -53,6 +54,14 @@ public class Filme extends AbstractEntity {
 
 	public void setSinopse(String sinopse) {
 		this.sinopse = sinopse;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 }
