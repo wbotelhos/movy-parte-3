@@ -2,6 +2,8 @@
 	<title>Movy | Filme [exibir]</title>
 </head>
 <body>
+	<img src="${pageContext.request.contextPath}/filme/${filme.id}/imagem" alt="${not empty filme.titulo ? filme.titulo : filme.tituloOriginal}" width="120" height="130" /><br/><br/>
+
 	<form action="${pageContext.request.contextPath}/filme/${filme.id}/imagem" enctype="multipart/form-data" method="post">
 		<input type="file" name="file"/>
 		<input type="submit" value="enviar"/>
