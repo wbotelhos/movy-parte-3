@@ -1,5 +1,6 @@
 package br.com.wbotelhos.movy.controller;
 
+import java.io.File;
 import java.util.Collection;
 
 import br.com.caelum.vraptor.Delete;
@@ -7,6 +8,8 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.interceptor.download.Download;
+import br.com.caelum.vraptor.interceptor.download.FileDownload;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.wbotelhos.movy.model.Filme;
 import br.com.wbotelhos.movy.repository.FilmeRepository;
@@ -20,6 +23,21 @@ public class FilmeController {
 	public FilmeController(Result result, FilmeRepository repository) {
 		this.result = result;
 		this.repository = repository;
+	}
+
+	@Get("/filme/{filme.id}/imagem")
+	public Download downloadImage(Filme filme) {
+		filme = repository.loadById(filme.getId());
+
+		File file = new File(Filme.IMAGE_PATH, filme.getImagem());
+
+	    if (!file.exists()) {
+	        return new FileDownload(new File(Filme.IMAGE_PATH, "default.jpg"), "image/jpg", "default.jpg");
+	    }
+
+	    String fileName = filme.getTitulo().replaceAll(" ", "-") + ".jpg";
+
+	    return new FileDownload(file, "image/jpg", fileName);
 	}
 
 	@Get("/filme/{filme.id}/editar")
