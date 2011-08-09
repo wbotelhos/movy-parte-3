@@ -22,6 +22,21 @@ public class FilmeBusiness extends GenericBusiness<Filme> implements FilmeReposi
 	  super(manager);
 	}
 
+	public void removeImage(Filme filme) throws Exception {
+		if (!filme.getImagem().equals("default.jpg")) {
+
+			File file = new File(Filme.IMAGE_PATH, filme.getImagem());
+
+			if (file.exists() && !file.delete()) {
+				throw new Exception("Não foi possível apagar a imagem.");
+			}
+
+			filme.setImagem("default.jpg");
+
+			this.updateImage(filme);
+		}
+	}
+
 	public void updateImage(Filme filme) {
 		Query query = manager.createQuery("update Filme set imagem = :imagem where id = :id");
 		query.setParameter("imagem", filme.getImagem());

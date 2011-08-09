@@ -6,6 +6,8 @@ import br.com.wbotelhos.movy.repository.common.GenericRepository;
 
 public interface FilmeRepository extends GenericRepository<Filme> {
 
+	void removeImage(Filme filme) throws Exception;
+
 	void updateImage(Filme filme);
 
 	void uploadImage(UploadedFile file, Filme filme) throws Exception;
