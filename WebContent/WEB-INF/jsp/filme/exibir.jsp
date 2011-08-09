@@ -2,6 +2,11 @@
 	<title>Movy | Filme [exibir]</title>
 </head>
 <body>
+	<form action="${pageContext.request.contextPath}/artista/${artista.id}/imagem" enctype="multipart/form-data" method="post">
+		<input type="file" name="file"/>
+		<input type="submit" value="enviar"/>
+	</form><br/><br/>
+
 	<h2>${filme.titulo}</h2>
 
 	(${filme.tituloOriginal} - ${filme.genero} - ${filme.ano})<br/>
