@@ -16,9 +16,12 @@ import br.com.wbotelhos.movy.model.common.TipoSexo;
 @Entity
 public class Artista extends AbstractEntity {
 
-	private static final long serialVersionUID = 8593908819891487557L;
+	private static final long serialVersionUID = 4539245487143126173L;
+
+	public static final String IMAGE_PATH = "/Users/botelho/movy/img/artista";
 
 	private String nome;
+	private String imagem;
 
 	@Enumerated(EnumType.STRING)
 	private TipoSexo sexo;
@@ -49,6 +52,14 @@ public class Artista extends AbstractEntity {
 
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 }
