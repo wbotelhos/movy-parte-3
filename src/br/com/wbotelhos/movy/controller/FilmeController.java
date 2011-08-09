@@ -68,6 +68,19 @@ public class FilmeController {
 	  .redirectTo(this).listagem();
 	}
 
+	@Delete("/filme/{filme.id}/imagem")
+	public void removeImage(Filme filme) {
+		try {
+			filme = repository.loadById(filme.getId());
+
+			repository.removeImage(filme);
+		} catch (Exception e) {
+			result.include("error", e.getMessage());
+		}
+
+		result.redirectTo(this).exibir(filme);
+	}
+
 	@Post("/filme")
 	public void salvar(Filme filme) {
 		filme = repository.save(filme);
