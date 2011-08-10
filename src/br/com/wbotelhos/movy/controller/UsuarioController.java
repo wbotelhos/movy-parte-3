@@ -11,7 +11,9 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.download.Download;
 import br.com.caelum.vraptor.interceptor.download.FileDownload;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.com.wbotelhos.movy.annotation.Permission;
 import br.com.wbotelhos.movy.model.Usuario;
+import br.com.wbotelhos.movy.model.common.TipoPerfil;
 import br.com.wbotelhos.movy.repository.UsuarioRepository;
 
 @Resource
@@ -77,6 +79,7 @@ public class UsuarioController {
 
 	}
 
+	@Permission({ TipoPerfil.MODERADOR, TipoPerfil.ADMINISTRADOR })
 	@Delete("/usuario/{usuario.id}")
 	public void remover(Usuario usuario) {
 	  repository.remove(usuario);
