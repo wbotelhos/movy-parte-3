@@ -74,6 +74,11 @@ public class UsuarioController {
 		result.include("usuarioList", usuarioList);
 	}
 
+	@Get("/negado")
+	public void negado() {
+		
+	}
+
 	@Get("/usuario/novo")
 	public void novo() {
 
