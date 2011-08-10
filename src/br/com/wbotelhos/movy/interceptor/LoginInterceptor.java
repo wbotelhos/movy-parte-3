@@ -10,7 +10,7 @@ import br.com.caelum.vraptor.resource.ResourceMethod;
 import br.com.wbotelhos.movy.component.UserSession;
 import br.com.wbotelhos.movy.controller.LoginController;
 
-@Intercepts
+@Intercepts(before = PermissionInterceptor.class)
 public class LoginInterceptor implements Interceptor {
 
 	private final Result result;

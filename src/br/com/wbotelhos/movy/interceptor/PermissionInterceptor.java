@@ -15,7 +15,7 @@ import br.com.wbotelhos.movy.controller.UsuarioController;
 import br.com.wbotelhos.movy.model.Usuario;
 import br.com.wbotelhos.movy.model.common.TipoPerfil;
 
-@Intercepts
+@Intercepts(after = LoginInterceptor.class)
 public class PermissionInterceptor implements Interceptor {
 
 	private final Result result;
